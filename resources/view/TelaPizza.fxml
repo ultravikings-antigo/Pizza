@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaPizza">
+   <children>
+      <Label layoutX="88.0" layoutY="194.0" text="Lista de Pizzas" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <ListView fx:id="ltvCardapio" layoutX="32.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
+      <Button layoutX="1000.0" layoutY="574.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="30.0" prefWidth="200.0" text="Voltar" textFill="#424242" />
+      <Button fx:id="bAdicionarPizza" layoutX="1000.0" layoutY="351.0" mnemonicParsing="false" onAction="#acaoAdicionar" prefHeight="30.0" prefWidth="200.0" text="Adiconar Pizza" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="681.0" layoutY="260.0" prefHeight="5.0" prefWidth="103.0" text="Total R$" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <effect>
+            <Bloom />
+         </effect>
+      </Label>
+      <Button fx:id="bFinalizarPedido" layoutX="1000.0" layoutY="656.0" mnemonicParsing="false" onAction="#acaoPedir" prefHeight="30.0" prefWidth="200.0" text="Finalizar Pedido" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="tfValor" editable="false" layoutX="784.0" layoutY="253.0" prefHeight="0.0" prefWidth="135.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <ListView fx:id="ltvPizzas" layoutX="649.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
+      <Button fx:id="bAbrirPedido" layoutX="1000.0" layoutY="257.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="30.0" prefWidth="200.0" text="Abir Pedido" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="tfPesquisaPizza" layoutX="32.0" layoutY="257.0" prefHeight="30.0" prefWidth="200.0" />
+      <Button layoutX="247.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaPizza" prefHeight="30.0" prefWidth="55.0" text="Ir" />
+      <Label layoutX="380.0" layoutY="194.0" text="Lista de Clientes" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfPesquisaCliente" layoutX="334.0" layoutY="257.0" prefHeight="30.0" prefWidth="200.0" />
+      <Button layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaCliente" prefHeight="30.0" prefWidth="55.0" text="Ir" />
+      <ListView fx:id="ltvCliente" layoutX="335.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
+   </children>
+</AnchorPane>

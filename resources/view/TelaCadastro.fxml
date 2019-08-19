@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaCadastro">
+   <children>
+      <TextField fx:id="tfSabor" layoutX="540.0" layoutY="242.0" prefHeight="30.0" prefWidth="200.0" />
+      <Label layoutX="425.0" layoutY="242.0" prefHeight="24.0" prefWidth="64.0" text="Sabor" textAlignment="CENTER" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Label layoutX="430.0" layoutY="332.0" text="valor" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Button layoutX="540.0" layoutY="433.0" mnemonicParsing="false" onAction="#acaoCadastrar" prefHeight="30.0" prefWidth="200.0" text="Cadastrar" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button layoutX="540.0" layoutY="500.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="30.0" prefWidth="200.0" text="Voltar" textFill="#424242" />
+      <TextField fx:id="tfValor" layoutX="540.0" layoutY="329.0" prefHeight="30.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
