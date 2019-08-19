@@ -27,9 +27,6 @@ public class JanelaPizza extends Avisos{
     private ListView<Cliente> ltvCliente;
 
     @FXML
-    private TextField tfValor;
-
-    @FXML
     private Button bAbrirPedido;
 
     @FXML
@@ -47,7 +44,7 @@ public class JanelaPizza extends Avisos{
             Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
         }else{
             Boolean decisão = mensagemConfirmar("Realmente Quer Sair ?\nAinda Há Um Pedido Aberto");
-            if (decisão == true){
+            if (decisão != Boolean.TRUE){
                 Pizzaria.getInstance().fecharPedido();
                 Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
             }
@@ -75,7 +72,8 @@ public class JanelaPizza extends Avisos{
         }else{
             ltvPizzas.setItems(Pizzaria.getInstance().getListaPedido());
             Pizzaria.getInstance().incluirPizza(ltvCardapio.getSelectionModel().getSelectedItem());
-            tfValor.setText(String.valueOf(Pizzaria.getInstance().valorPedido()));
+            DecimalFormat df = new DecimalFormat("###,##0.00");
+            lbTotal.setText("Total: "+ df.format(Double.valueOf(Pizzaria.getInstance().valorPedido())));
         }
     }
 
@@ -87,12 +85,12 @@ public class JanelaPizza extends Avisos{
             Pizzaria.getInstance().fecharPedido();
             DecimalFormat df = new DecimalFormat("###,##0.00");
             ltvPizzas.getItems().clear();
-            if (tfValor.getLength() != 0){
-                mensagem(Alert.AlertType.INFORMATION,"Pedido Finalizado Com Sucesso\nValor Total:"+df.format(Double.valueOf(tfValor.getText())));
+            if (lbTotal.getText() != ""){
+                mensagem(Alert.AlertType.INFORMATION,"Pedido Finalizado Com Sucesso\nValor Total: "+lbTotal.getText());
             }else{
                 mensagem(Alert.AlertType.INFORMATION,"\nPedido Finalizado Com Sucesso");
             }
-            tfValor.clear();
+            lbTotal.setText("Total:");
             bAbrirPedido.setDisable(false);
             bFinalizarPedido.setDisable(true);
             bAdicionarPizza.setDisable(true);

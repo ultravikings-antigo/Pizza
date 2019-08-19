@@ -21,7 +21,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Label fx:id="lbTotal" layoutX="677.0" layoutY="260.0" prefHeight="5.0" prefWidth="103.0" text="Total R$" textFill="#424242">
+      <Label fx:id="lbTotal" layoutX="677.0" layoutY="260.0" prefHeight="5.0" prefWidth="200.0" text="Total:" textFill="#424242">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -33,11 +33,6 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <TextField fx:id="tfValor" editable="false" layoutX="784.0" layoutY="253.0" prefHeight="0.0" prefWidth="135.0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </TextField>
       <ListView fx:id="ltvPizzas" layoutX="649.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
       <Button fx:id="bAbrirPedido" layoutX="1000.0" layoutY="257.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="30.0" prefWidth="200.0" text="Abir Pedido" textFill="#424242">
          <font>

@@ -74,13 +74,12 @@ public class Pizzaria {
         return pedido;
     }
 
-    public Double fecharPedido() throws Exception{
-        Double valor=0.0;
+    public void fecharPedido() throws Exception{
+
 
         if(pedido != null){
-            valor = pedido.getValorTotal();
+            pedido.getValorTotal();
             pedido = null;
-            return valor;
         }else{
             throw new Exception("Pedido Fechado");
 
