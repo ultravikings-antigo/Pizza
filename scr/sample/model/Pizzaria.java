@@ -28,7 +28,7 @@ public class Pizzaria {
 
 
         try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
 
             PreparedStatement stm = con.prepareStatement("INSERT INTO pizza(sabor, valor) VALUES (?,?)");
 
@@ -94,7 +94,7 @@ public class Pizzaria {
         sabores.clear();
         try {
 
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
 
             PreparedStatement stm = con.prepareStatement("SELECT * FROM pizza");
 
@@ -142,7 +142,7 @@ public class Pizzaria {
         Cliente c = new Cliente(nome,telefone,ano);
 
         try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
 
             PreparedStatement stm = con.prepareStatement("INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)");
 
@@ -167,7 +167,7 @@ public class Pizzaria {
         clientes.clear();
         try {
 
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
 
             PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente");
 
@@ -197,7 +197,7 @@ public class Pizzaria {
     public ObservableList pesquisaSabor(String sabor){
         sabores.clear();
         try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
             PreparedStatement stm = con.prepareStatement("SELECT * FROM pizza where sabor like ?");
             stm.setString(1,sabor);
             ResultSet rs = stm.executeQuery();
@@ -220,7 +220,7 @@ public class Pizzaria {
     public ObservableList pesquisaNome(String nome){
         clientes.clear();
         try {
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizzaapp.sqlite");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
             PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente where nome like ?");
             stm.setString(1,nome);
             ResultSet rs = stm.executeQuery();
