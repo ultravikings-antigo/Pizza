@@ -2,11 +2,14 @@ package sample.control;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import sample.Navegador;
 import sample.model.Cliente;
 import sample.model.Pizza;
 import sample.model.Pizzaria;
 
+import java.sql.SQLException;
 import java.text.DecimalFormat;
 
 public class JanelaPizza extends Avisos{
@@ -142,4 +145,43 @@ public class JanelaPizza extends Avisos{
             }
         }
     }
+    @FXML
+    public void buscaPizzas(KeyEvent evt){
+
+
+
+        if(evt.getCode() == KeyCode.Z && evt.isControlDown()){
+            Pizzaria.getInstance().listaSabores();
+            ((TextField)evt.getSource()).setText("");
+        }else{
+            String texto = ((TextField)evt.getSource()).getText() + evt.getText();
+
+            if(texto.length() >= 3){
+                Pizzaria.getInstance().pesquisaSabor(texto);
+            }
+        }
+
+        //mensagem(Alert.AlertType.ERROR,"Erro ao listar Pizzas!"+e.getMessage());
+    }
+
+    @FXML
+    public void buscaClientes(KeyEvent evt){
+        String texto = ((TextField)evt.getSource()).getText();
+        if(evt.getCode() != KeyCode.BACK_SPACE){
+            texto += evt.getText();
+        }
+
+        System.out.println(texto+" "+texto.length());
+        if(evt.getCode() == KeyCode.Z && evt.isControlDown() || texto.length()==0){
+            Pizzaria.getInstance().listaCliente();
+            ((TextField)evt.getSource()).setText("");
+        }else{
+
+
+            if(texto.length() >= 3){
+                Pizzaria.getInstance().pesquisaNome(texto);
+            }
+        }
+    }
+
 }

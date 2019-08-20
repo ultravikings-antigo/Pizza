@@ -38,14 +38,14 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <TextField fx:id="tfPesquisaPizza" layoutX="32.0" layoutY="257.0" prefHeight="30.0" prefWidth="200.0" />
+      <TextField fx:id="tfPesquisaPizza" layoutX="32.0" layoutY="257.0" onKeyPressed="#buscaPizzas" prefHeight="30.0" prefWidth="200.0" />
       <Button layoutX="247.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaPizza" prefHeight="30.0" prefWidth="55.0" text="Ir" />
       <Label layoutX="380.0" layoutY="194.0" text="Lista de Clientes" textFill="#424242">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="tfPesquisaCliente" layoutX="334.0" layoutY="257.0" prefHeight="30.0" prefWidth="200.0" />
+      <TextField fx:id="tfPesquisaCliente" layoutX="334.0" layoutY="257.0" onKeyPressed="#buscaClientes" prefHeight="30.0" prefWidth="200.0" />
       <Button layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaCliente" prefHeight="30.0" prefWidth="55.0" text="Ir" />
       <ListView fx:id="ltvCliente" layoutX="335.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
       <Label layoutX="470.0" layoutY="73.0" text="Pizzaria Don Calonaci" textFill="#424242">
