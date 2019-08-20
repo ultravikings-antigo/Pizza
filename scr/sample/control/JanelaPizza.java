@@ -15,12 +15,6 @@ import java.text.DecimalFormat;
 public class JanelaPizza extends Avisos{
 
     @FXML
-    private TextField tfPesquisaPizza;
-
-    @FXML
-    private TextField tfPesquisaCliente;
-
-    @FXML
     private ListView<Pizza> ltvCardapio;
 
     @FXML
@@ -54,14 +48,15 @@ public class JanelaPizza extends Avisos{
         }
     }
 
-    public void initialize(){
+    public void initialize() throws SQLException {
 
         bFinalizarPedido.setDisable(true);
         bAdicionarPizza.setDisable(true);
 
         ltvCardapio.getItems().clear();
-        ltvCardapio.getItems().addAll(Pizzaria.getInstance().listaSabores());
-        ltvCliente.getItems().addAll(Pizzaria.getInstance().listaCliente());
+        ltvCardapio.getItems().addAll(Pizzaria.getInstance().listarPizzas());
+        ltvCliente.getItems().addAll(Pizzaria.getInstance().listarCliente());
+        lbTotal.setText("Total: 0.00");
 
     }
 
@@ -93,7 +88,7 @@ public class JanelaPizza extends Avisos{
             }else{
                 mensagem(Alert.AlertType.INFORMATION,"\nPedido Finalizado Com Sucesso");
             }
-            lbTotal.setText("Total:");
+            lbTotal.setText("Total: 0.00");
             bAbrirPedido.setDisable(false);
             bFinalizarPedido.setDisable(true);
             bAdicionarPizza.setDisable(true);
@@ -103,7 +98,7 @@ public class JanelaPizza extends Avisos{
 
     @FXML
     public void abrirPedido() throws Exception {
-        if (Pizzaria.getInstance().listaSabores().size() == 0){
+        if (Pizzaria.getInstance().listarPizzas().size() == 0){
 
         }else{
             bAbrirPedido.setDisable(true);
@@ -115,71 +110,41 @@ public class JanelaPizza extends Avisos{
     }
 
     @FXML
-    public void acaoPesquisaPizza(){
-        if (tfPesquisaPizza.getText().equals("")){
-            ltvCardapio.getItems().clear();
-            ltvCardapio.getItems().addAll(Pizzaria.getInstance().listaSabores());
-        }else{
-            String sabor = tfPesquisaPizza.getText();
-            sabor = "%" + sabor + "%";
+    public void buscaPizzas(KeyEvent evt) throws SQLException {
 
-            if (Pizzaria.getInstance().pesquisaSabor(sabor) != null){
-                ltvCardapio.getItems().clear();
-                ltvCardapio.getItems().addAll(Pizzaria.getInstance().pesquisaSabor(sabor));
-            }
-        }
-    }
-
-    @FXML
-    public void acaoPesquisaCliente(){
-        if (tfPesquisaCliente.getText().equals("")){
-            ltvCliente.getItems().clear();
-            ltvCliente.getItems().addAll(Pizzaria.getInstance().listaCliente());
-        }else{
-            String nome = tfPesquisaCliente.getText();
-            nome = "%" + nome + "%";
-
-            if (Pizzaria.getInstance().pesquisaNome(nome) != null){
-                ltvCliente.getItems().clear();
-                ltvCliente.getItems().addAll(Pizzaria.getInstance().pesquisaNome(nome));
-            }
-        }
-    }
-    @FXML
-    public void buscaPizzas(KeyEvent evt){
-
-
-
-        if(evt.getCode() == KeyCode.Z && evt.isControlDown()){
-            Pizzaria.getInstance().listaSabores();
-            ((TextField)evt.getSource()).setText("");
-        }else{
-            String texto = ((TextField)evt.getSource()).getText() + evt.getText();
-
-            if(texto.length() >= 3){
-                Pizzaria.getInstance().pesquisaSabor(texto);
-            }
-        }
-
-        //mensagem(Alert.AlertType.ERROR,"Erro ao listar Pizzas!"+e.getMessage());
-    }
-
-    @FXML
-    public void buscaClientes(KeyEvent evt){
         String texto = ((TextField)evt.getSource()).getText();
         if(evt.getCode() != KeyCode.BACK_SPACE){
             texto += evt.getText();
         }
 
-        System.out.println(texto+" "+texto.length());
-        if(evt.getCode() == KeyCode.Z && evt.isControlDown() || texto.length()==0){
-            Pizzaria.getInstance().listaCliente();
+        if(texto.length()==0){
+
+            ltvCardapio.getItems().clear();
+            ltvCardapio.getItems().addAll(Pizzaria.getInstance().listarPizzas());
             ((TextField)evt.getSource()).setText("");
         }else{
-
-
             if(texto.length() >= 3){
-                Pizzaria.getInstance().pesquisaNome(texto);
+                ltvCardapio.getItems().clear();
+                ltvCardapio.getItems().addAll(Pizzaria.getInstance().pesquisarSabor(texto+"%"));
+            }
+        }
+    }
+
+    @FXML
+    public void buscaClientes(KeyEvent evt) throws SQLException {
+        String texto = ((TextField)evt.getSource()).getText();
+        if(evt.getCode() != KeyCode.BACK_SPACE){
+            texto += evt.getText();
+        }
+
+        if(texto.length()==0){
+            ltvCliente.getItems().clear();
+            ltvCliente.getItems().addAll(Pizzaria.getInstance().listarCliente());
+            ((TextField)evt.getSource()).setText("");
+        }else{
+            if(texto.length() >= 3){
+                ltvCliente.getItems().clear();
+                ltvCliente.getItems().addAll(Pizzaria.getInstance().pesquisarNome(texto+"%"));
             }
         }
     }

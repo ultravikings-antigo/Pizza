@@ -16,8 +16,8 @@
          </font>
       </Label>
       <ListView fx:id="ltvCardapio" layoutX="32.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
-      <Button layoutX="1000.0" layoutY="574.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="30.0" prefWidth="200.0" text="Voltar" textFill="#424242" />
-      <Button fx:id="bAdicionarPizza" layoutX="1000.0" layoutY="351.0" mnemonicParsing="false" onAction="#acaoAdicionar" prefHeight="30.0" prefWidth="200.0" text="Adiconar Pizza" textFill="#424242">
+      <Button layoutX="1000.0" layoutY="556.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="30.0" prefWidth="200.0" text="Voltar" textFill="#424242" />
+      <Button fx:id="bAdicionarPizza" layoutX="1000.0" layoutY="406.0" mnemonicParsing="false" onAction="#acaoAdicionar" prefHeight="30.0" prefWidth="200.0" text="Adiconar Pizza" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -34,19 +34,17 @@
             <Font name="System Bold" size="13.0" />
          </font></Button>
       <ListView fx:id="ltvPizzas" layoutX="649.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
-      <Button fx:id="bAbrirPedido" layoutX="1000.0" layoutY="257.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="30.0" prefWidth="200.0" text="Abir Pedido" textFill="#424242">
+      <Button fx:id="bAbrirPedido" layoutX="1000.0" layoutY="306.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="30.0" prefWidth="200.0" text="Abir Pedido" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <TextField fx:id="tfPesquisaPizza" layoutX="32.0" layoutY="257.0" onKeyPressed="#buscaPizzas" prefHeight="30.0" prefWidth="200.0" />
-      <Button layoutX="247.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaPizza" prefHeight="30.0" prefWidth="55.0" text="Ir" />
+      <TextField fx:id="tfPesquisaPizza" layoutX="32.0" layoutY="257.0" onKeyPressed="#buscaPizzas" prefHeight="30.0" prefWidth="270.0" promptText="pesquisa..." />
       <Label layoutX="380.0" layoutY="194.0" text="Lista de Clientes" textFill="#424242">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="tfPesquisaCliente" layoutX="334.0" layoutY="257.0" onKeyPressed="#buscaClientes" prefHeight="30.0" prefWidth="200.0" />
-      <Button layoutX="545.0" layoutY="257.0" mnemonicParsing="false" onAction="#acaoPesquisaCliente" prefHeight="30.0" prefWidth="55.0" text="Ir" />
+      <TextField fx:id="tfPesquisaCliente" layoutX="334.0" layoutY="257.0" onKeyPressed="#buscaClientes" prefHeight="30.0" prefWidth="270.0" promptText="pesquisa..." />
       <ListView fx:id="ltvCliente" layoutX="335.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
       <Label layoutX="470.0" layoutY="73.0" text="Pizzaria Don Calonaci" textFill="#424242">
          <font>

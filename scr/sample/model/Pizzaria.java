@@ -7,6 +7,9 @@ import java.sql.*;
 
 public class Pizzaria {
 
+    PizzaDAO pizzaDAO = new PizzaDAOImpl();
+    ClienteDAO clienteDAO = new ClienteDAOImpl();
+
     private ObservableList<Pizza> sabores;
     private Pedido pedido;
     private ObservableList<Cliente> clientes;
@@ -22,30 +25,40 @@ public class Pizzaria {
         return instance;
     }
 
-    public void cadastraPizza(String sabor, Double valor) {
 
-        Pizza p = new Pizza(sabor, valor);
+    public void cadastrarPizza(String sabor, Double valor) throws SQLException {
+        pizzaDAO.insere(sabor,valor);
+    }
 
-
-        try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
-
-            PreparedStatement stm = con.prepareStatement("INSERT INTO pizza(sabor, valor) VALUES (?,?)");
-
-            stm.setString(1,p.getSabor());
-            stm.setDouble(2,p.getValor());
-
-            stm.executeUpdate();
-
-            stm.close();
-            con.close();
-
-            sabores.add(p);
-        }catch(SQLException e){
-            e.printStackTrace();
-
+    public void incluirPizza(Pizza p) throws Exception{
+        if(pedido != null){
+            pedido.incluir(p);
+        }else{
+            throw new Exception("Pedido fechado!!");
         }
     }
+
+    public ObservableList listarPizzas() throws SQLException {
+        sabores.clear();
+        sabores.addAll(pizzaDAO.lista());
+
+        return sabores;
+    }
+
+
+    public void cadastrarCliente(String nome, String telefone, String ano) throws SQLException {
+        clienteDAO.insere(nome,telefone,ano);
+    }
+
+    public ObservableList listarCliente() throws SQLException {
+
+        clientes.clear();
+
+        clientes.addAll(clienteDAO.lista());
+
+        return clientes;
+    }
+
 
     public void abrirPedido() throws Exception{
         if(pedido == null){
@@ -54,71 +67,19 @@ public class Pizzaria {
             throw new Exception("Pedido já aberto!!");
 
         }
-
-
-    }
-
-    public void incluirPizza(Pizza p) throws Exception{
-        if(pedido != null){
-            pedido.incluir(p);
-        }else{
-            throw new Exception("Pedido fechado!!");
-
-        }
-
-
-    }
-
-    public Pedido verPedido(){
-
-        return pedido;
     }
 
     public void fecharPedido() throws Exception{
-
-
         if(pedido != null){
             pedido.getValorTotal();
             pedido = null;
         }else{
             throw new Exception("Pedido Fechado");
-
         }
-
-
     }
 
-    public ObservableList listaSabores(){
-
-        sabores.clear();
-        try {
-
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
-
-            PreparedStatement stm = con.prepareStatement("SELECT * FROM pizza");
-
-            ResultSet rs = stm.executeQuery();
-
-            while (rs.next()) {
-
-                int id = rs.getInt("id");
-                String sabor = rs.getString("sabor");
-                double valor = rs.getDouble("valor");
-
-                Pizza p = new Pizza(id, sabor, valor);
-
-                sabores.add(p);
-            }
-
-            rs.close();
-            stm.close();
-            con.close();
-
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-
-        return sabores;
+    public Pedido verPedido(){
+        return pedido;
     }
 
     public Double valorPedido(){
@@ -133,67 +94,15 @@ public class Pizzaria {
         if(pedido != null){
             return pedido.listaPizzas();
         }
+
         return FXCollections.emptyObservableList();
     }
 
-    public void cadastraCliente(String nome, String telefone, String ano) {
 
-        Cliente c = new Cliente(nome,telefone,ano);
 
-        try{
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
 
-            PreparedStatement stm = con.prepareStatement("INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)");
 
-            stm.setString(1,c.getNome());
-            stm.setString(2,c.getTelefone());
-            stm.setString(3,c.getAno_nascimento());
-
-            stm.executeUpdate();
-
-            stm.close();
-            con.close();
-
-            clientes.add(c);
-        }catch(SQLException e){
-            e.printStackTrace();
-
-        }
-    }
-
-    public ObservableList listaCliente(){
-
-        clientes.clear();
-        try {
-
-            Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
-
-            PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente");
-
-            ResultSet rs = stm.executeQuery();
-
-            while (rs.next()) {
-
-                String nome = rs.getString("nome");
-                String telefone = rs.getString("telefone");
-                String ano = rs.getString("ano");
-
-                Cliente c = new Cliente(nome,telefone,ano);
-
-                clientes.add(c);
-            }
-
-            rs.close();
-            stm.close();
-            con.close();
-
-        }catch(SQLException e){
-            e.printStackTrace();
-        }
-
-        return clientes;
-    }
-    public ObservableList pesquisaSabor(String sabor){
+    public ObservableList pesquisarSabor(String sabor){
         sabores.clear();
         try {
             Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
@@ -216,7 +125,7 @@ public class Pizzaria {
         return sabores;
     }
 
-    public ObservableList pesquisaNome(String nome){
+    public ObservableList pesquisarNome(String nome){
         clientes.clear();
         try {
             Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");

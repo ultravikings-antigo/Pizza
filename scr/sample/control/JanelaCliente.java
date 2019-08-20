@@ -6,6 +6,8 @@ import javafx.scene.control.TextField;
 import sample.Navegador;
 import sample.model.Pizzaria;
 
+import java.sql.SQLException;
+
 public class JanelaCliente extends Avisos{
     @FXML
     private TextField tfNome;
@@ -23,7 +25,7 @@ public class JanelaCliente extends Avisos{
     }
 
     @FXML
-    void acaoCadastrar(){
+    void acaoCadastrar() throws SQLException {
 
         if (tfNome.getText().equals("") || tfTelefone.getText().equals("") || tfAno.getText().equals("")){
             mensagem(Alert.AlertType.ERROR,"\nInforme As Informações Corretas");
@@ -34,7 +36,7 @@ public class JanelaCliente extends Avisos{
             String telefone = tfTelefone.getText();
             String ano = tfAno.getText();
 
-            Pizzaria.getInstance().cadastraCliente(nome,telefone,ano);
+            Pizzaria.getInstance().cadastrarCliente(nome,telefone,ano);
             Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
         }
     }

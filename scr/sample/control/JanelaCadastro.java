@@ -6,6 +6,8 @@ import javafx.scene.control.TextField;
 import sample.Navegador;
 import sample.model.Pizzaria;
 
+import java.sql.SQLException;
+
 
 public class JanelaCadastro extends Avisos{
     @FXML
@@ -21,7 +23,7 @@ public class JanelaCadastro extends Avisos{
     }
 
     @FXML
-    void acaoCadastrar(){
+    void acaoCadastrar() throws SQLException {
 
         if (tfSabor.getText().equals("") || tfValor.getText().equals("")){
            mensagem(Alert.AlertType.ERROR,"\nInforme Um Sabor E Um Valor Validos");
@@ -29,7 +31,7 @@ public class JanelaCadastro extends Avisos{
         else{
             String sabor = tfSabor.getText();
             Double valor = Double.valueOf(tfValor.getText());
-            Pizzaria.getInstance().cadastraPizza(sabor,valor);
+            Pizzaria.getInstance().cadastrarPizza(sabor,valor);
             Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
 
         }

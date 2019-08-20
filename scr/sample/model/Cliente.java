@@ -2,14 +2,30 @@ package sample.model;
 
 public class Cliente {
 
-    String nome;
-    String telefone;
-    String ano_nascimento;
+    private int id;
+    private String nome;
+    private String telefone;
+    private String ano_nascimento;
+
+    public Cliente(int id, String nome, String telefone, String ano_nascimento) {
+        this.id = id;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.ano_nascimento = ano_nascimento;
+    }
 
     public Cliente(String nome, String telefone, String ano_nascimento) {
         this.nome = nome;
         this.telefone = telefone;
         this.ano_nascimento = ano_nascimento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
