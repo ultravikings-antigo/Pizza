@@ -22,4 +22,14 @@ public class JanelaPrincipal {
     public void telaCliente() {
         Navegador.loadJanela(Navegador.JANELA_CLIENTE);
     }
+
+    @FXML
+    public void telaAtualizarCliente(){
+        Navegador.loadJanela(Navegador.JANELA_ATUALIZARCLIENTE);
+    }
+
+    @FXML
+    public void telaAtualizarPizza(){
+        Navegador.loadJanela(Navegador.JANELA_ATUALIZARPIZZA);
+    }
 }

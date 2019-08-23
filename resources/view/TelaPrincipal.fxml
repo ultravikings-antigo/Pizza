@@ -12,7 +12,7 @@
             <Font name="EB Garamond 08 Italic" size="35.0" />
          </font>
       </Label>
-      <Button layoutX="540.0" layoutY="341.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Pizza" textFill="#424242">
+      <Button layoutX="379.0" layoutY="345.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Pizza" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
@@ -24,7 +24,17 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Label>
-      <Button layoutX="540.0" layoutY="427.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Cliente" textFill="#424242">
+      <Button layoutX="379.0" layoutY="427.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Cliente" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="696.0" layoutY="345.0" mnemonicParsing="false" onAction="#telaAtualizarPizza" prefHeight="30.0" prefWidth="200.0" text="Atualizar Pizza">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="696.0" layoutY="427.0" mnemonicParsing="false" onAction="#telaAtualizarCliente" prefHeight="30.0" prefWidth="200.0" text="Atualizar Cliente">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
