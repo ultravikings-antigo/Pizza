@@ -18,10 +18,10 @@ public class JanelaPizza extends Avisos{
     private ListView<Pizza> ltvCardapio;
 
     @FXML
-    private ListView<Pizza> ltvPizzas;
+    private ListView<Cliente> ltvCliente;
 
     @FXML
-    private ListView<Cliente> ltvCliente;
+    private ListView<Pizza> ltvPizzas;
 
     @FXML
     private Button bAbrirPedido;
@@ -30,10 +30,16 @@ public class JanelaPizza extends Avisos{
     private Button bAdicionarPizza;
 
     @FXML
+    private Button bAdicionarCliente;
+
+    @FXML
     private Button bFinalizarPedido;
 
     @FXML
     private Label lbTotal;
+
+    @FXML
+    private Label lbCliente;
 
     @FXML
     void telaPrincipal() throws Exception {
@@ -52,16 +58,18 @@ public class JanelaPizza extends Avisos{
 
         bFinalizarPedido.setDisable(true);
         bAdicionarPizza.setDisable(true);
+        bAdicionarCliente.setDisable(true);
 
         ltvCardapio.getItems().clear();
         ltvCardapio.getItems().addAll(Pizzaria.getInstance().listarPizzas());
         ltvCliente.getItems().addAll(Pizzaria.getInstance().listarCliente());
         lbTotal.setText("Total: 0.00");
+        lbCliente.setText("Cliente: Nenhum");
 
     }
 
     @FXML
-    public void acaoAdicionar() throws Exception {
+    public void acaoAdicionarPizza() throws Exception {
 
         if (Pizzaria.getInstance().verPedido() == null){
             mensagem(Alert.AlertType.INFORMATION, "\nÉ Necessario Abrir Um Pedido");
@@ -72,6 +80,22 @@ public class JanelaPizza extends Avisos{
             Pizzaria.getInstance().incluirPizza(ltvCardapio.getSelectionModel().getSelectedItem());
             DecimalFormat df = new DecimalFormat("###,##0.00");
             lbTotal.setText("Total: "+ df.format(Double.valueOf(Pizzaria.getInstance().valorPedido())));
+            lbCliente.setText("Cliente: ");
+        }
+    }
+
+    @FXML
+    public void acaoAdicionarCliente() throws Exception {
+        if (Pizzaria.getInstance().verPedido() == null){
+            mensagem(Alert.AlertType.INFORMATION, "\nÉ Necessario Abrir Um Pedido");
+        }else if(ltvCardapio.getSelectionModel().getSelectedItem() == null){
+            mensagem(Alert.AlertType.INFORMATION,"\nÈ Necessario Selecionar Um Cliente");
+        }else{
+            ltvPizzas.setItems(Pizzaria.getInstance().getListaPedido());
+            Pizzaria.getInstance().incluirCliente(ltvCliente.getSelectionModel().getSelectedItem());
+            DecimalFormat df = new DecimalFormat("###,##0.00");
+            lbTotal.setText("Total: "+ df.format(Double.valueOf(Pizzaria.getInstance().valorPedido())));
+            lbCliente.setText("Cliente: "+ Pizzaria.getInstance().clientePedido());
         }
     }
 
@@ -84,14 +108,16 @@ public class JanelaPizza extends Avisos{
             DecimalFormat df = new DecimalFormat("###,##0.00");
             ltvPizzas.getItems().clear();
             if (lbTotal.getText() != ""){
-                mensagem(Alert.AlertType.INFORMATION,"Pedido Finalizado Com Sucesso\nValor Total: "+lbTotal.getText());
+                mensagem(Alert.AlertType.INFORMATION,"Pedido Finalizado Com Sucesso\nValor "+lbTotal.getText()+"\n"+lbCliente.getText());
             }else{
                 mensagem(Alert.AlertType.INFORMATION,"\nPedido Finalizado Com Sucesso");
             }
             lbTotal.setText("Total: 0.00");
+            lbCliente.setText("Cliente: Nenhum");
             bAbrirPedido.setDisable(false);
             bFinalizarPedido.setDisable(true);
             bAdicionarPizza.setDisable(true);
+            bAdicionarCliente.setDisable(true);
 
         }
     }
@@ -104,6 +130,7 @@ public class JanelaPizza extends Avisos{
             bAbrirPedido.setDisable(true);
             bFinalizarPedido.setDisable(false);
             bAdicionarPizza.setDisable(false);
+            bAdicionarCliente.setDisable(false);
 
             Pizzaria.getInstance().abrirPedido();
         }

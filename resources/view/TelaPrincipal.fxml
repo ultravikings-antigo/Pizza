@@ -1,43 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaPrincipal">
    <children>
-      <Label layoutX="486.0" layoutY="206.0" text="Pizzaria Don Calonaci" textFill="#424242">
-         <font>
-            <Font name="EB Garamond 08 Italic" size="35.0" />
-         </font>
-      </Label>
-      <Button layoutX="379.0" layoutY="345.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Pizza" textFill="#424242">
+      <Button layoutX="490.0" layoutY="259.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="50.0" prefWidth="300.0" text="Cadastrar Pizza" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="540.0" layoutY="518.0" mnemonicParsing="false" onAction="#telaListar" prefHeight="30.0" prefWidth="200.0" text="Ver Cardapio" textFill="#424242">
+      <Button layoutX="490.0" layoutY="512.0" mnemonicParsing="false" onAction="#telaListar" prefHeight="50.0" prefWidth="300.0" text="Ver Cardapio" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Label layoutX="579.0" layoutY="646.0" text="Fone: 4002 8922" textFill="#424242">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font></Label>
-      <Button layoutX="379.0" layoutY="427.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="30.0" prefWidth="200.0" text="Cadastrar Cliente" textFill="#424242">
+      <Button layoutX="490.0" layoutY="386.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="50.0" prefWidth="300.0" text="Cadastrar Cliente" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="696.0" layoutY="345.0" mnemonicParsing="false" onAction="#telaAtualizarPizza" prefHeight="30.0" prefWidth="200.0" text="Atualizar Pizza">
+      <Text layoutX="714.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Um Novo TOM De Pizza" />
+      <Text fill="#424242" layoutX="425.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizzaria DON Calonaci">
          <font>
-            <Font name="System Bold" size="13.0" />
+            <Font size="40.0" />
          </font>
-      </Button>
-      <Button layoutX="696.0" layoutY="427.0" mnemonicParsing="false" onAction="#telaAtualizarCliente" prefHeight="30.0" prefWidth="200.0" text="Atualizar Cliente">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-      </Button>
+      </Text>
    </children>
 </AnchorPane>

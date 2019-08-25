@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaCadastro">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaCadastro">
    <children>
       <TextField fx:id="tfSabor" layoutX="540.0" layoutY="242.0" prefHeight="30.0" prefWidth="200.0" />
       <Label layoutX="425.0" layoutY="242.0" prefHeight="24.0" prefWidth="64.0" text="Sabor" textAlignment="CENTER" textFill="#424242">

@@ -14,12 +14,8 @@ public class Navegador{
     public static final String JANELA_CADASTRO = "/view/TelaCadastro.fxml";
     public static final String JANELA_BASE = "/view/TelaBase.fxml";
     public static final String JANELA_CLIENTE = "/view/TelaCliente.fxml";
-    public static final String JANELA_ATUALIZARCLIENTE = "view/TelaAtualizarCliente";
-    public static final String JANELA_ATUALIZARPIZZA = "view/TelaAtualizarPizza";
 
     private static JanelaBase controlador;
-
-
 
     public static void setControlador(JanelaBase controlador) {
         Navegador.controlador = controlador;

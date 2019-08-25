@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Pedido {
+    private Cliente cliente;
     private ObservableList<Pizza> pizzas;
     private Double valorTotal;
 
@@ -15,6 +16,10 @@ public class Pedido {
         pizzas.add(p);
     }
 
+    public void incluirCliente(Cliente c){
+        this.cliente = c;
+    }
+
     public Double getValorTotal(){
         valorTotal=0.0;
 
@@ -23,6 +28,10 @@ public class Pedido {
         }
 
         return valorTotal;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
     }
 
     public ObservableList<Pizza> listaPizzas() {

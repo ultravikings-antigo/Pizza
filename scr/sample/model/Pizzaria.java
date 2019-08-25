@@ -38,6 +38,10 @@ public class Pizzaria {
         }
     }
 
+    public void incluirCliente(Cliente c) throws Exception{
+        pedido.incluirCliente(c);
+    }
+
     public ObservableList listarPizzas() throws SQLException {
         sabores.clear();
         sabores.addAll(pizzaDAO.lista());
@@ -88,6 +92,10 @@ public class Pizzaria {
         }
 
         return 0.0;
+    }
+
+    public Cliente clientePedido(){
+        return pedido.getCliente();
     }
 
     public ObservableList<Pizza> getListaPedido(){
