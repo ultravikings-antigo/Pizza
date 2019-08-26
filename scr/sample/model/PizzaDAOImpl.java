@@ -97,6 +97,29 @@ public class PizzaDAOImpl implements PizzaDAO{
     }
 
     @Override
+    public List<Pizza> buscaSabor(String sabor) throws SQLException {
+
+        ArrayList<Pizza> sabores = new ArrayList<>();
+
+        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        PreparedStatement stm = con.prepareStatement("SELECT * FROM pizza where sabor like ?");
+        stm.setString(1,sabor);
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()){
+            int idP = rs.getInt("id");
+            String saborP = rs.getString("sabor");
+            Double valorP = rs.getDouble("valor");
+            Pizza p = new Pizza(idP, saborP, valorP);
+            sabores.add(p);
+        }
+        rs.close();
+        stm.close();
+        con.close();
+
+        return sabores;
+    }
+
+    @Override
     public List<Pizza> lista() throws SQLException {
         ArrayList<Pizza> sabores = new ArrayList<>();
 

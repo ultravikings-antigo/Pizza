@@ -5,9 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import sample.Navegador;
-import sample.model.Cliente;
-import sample.model.Pizza;
-import sample.model.Pizzaria;
+import sample.model.*;
 
 import java.sql.SQLException;
 import java.text.DecimalFormat;
@@ -63,8 +61,7 @@ public class JanelaPizza extends Avisos{
         ltvCardapio.getItems().clear();
         ltvCardapio.getItems().addAll(Pizzaria.getInstance().listarPizzas());
         ltvCliente.getItems().addAll(Pizzaria.getInstance().listarCliente());
-        lbTotal.setText("Total: 0.00");
-        lbCliente.setText("Cliente: Nenhum");
+
 
     }
 
@@ -80,7 +77,7 @@ public class JanelaPizza extends Avisos{
             Pizzaria.getInstance().incluirPizza(ltvCardapio.getSelectionModel().getSelectedItem());
             DecimalFormat df = new DecimalFormat("###,##0.00");
             lbTotal.setText("Total: "+ df.format(Double.valueOf(Pizzaria.getInstance().valorPedido())));
-            lbCliente.setText("Cliente: ");
+
         }
     }
 
@@ -88,13 +85,12 @@ public class JanelaPizza extends Avisos{
     public void acaoAdicionarCliente() throws Exception {
         if (Pizzaria.getInstance().verPedido() == null){
             mensagem(Alert.AlertType.INFORMATION, "\nÉ Necessario Abrir Um Pedido");
-        }else if(ltvCardapio.getSelectionModel().getSelectedItem() == null){
+        }else if(ltvCliente.getSelectionModel().getSelectedItem() == null){
             mensagem(Alert.AlertType.INFORMATION,"\nÈ Necessario Selecionar Um Cliente");
         }else{
             ltvPizzas.setItems(Pizzaria.getInstance().getListaPedido());
             Pizzaria.getInstance().incluirCliente(ltvCliente.getSelectionModel().getSelectedItem());
             DecimalFormat df = new DecimalFormat("###,##0.00");
-            lbTotal.setText("Total: "+ df.format(Double.valueOf(Pizzaria.getInstance().valorPedido())));
             lbCliente.setText("Cliente: "+ Pizzaria.getInstance().clientePedido());
         }
     }
@@ -103,10 +99,11 @@ public class JanelaPizza extends Avisos{
     public void acaoPedir() throws Exception {
         if (Pizzaria.getInstance().verPedido() == null){
             mensagem(Alert.AlertType.INFORMATION, "\nÉ Necessario Abrir Um Pedido");
-        }else {
+        }
+        else {
             Pizzaria.getInstance().fecharPedido();
-            DecimalFormat df = new DecimalFormat("###,##0.00");
             ltvPizzas.getItems().clear();
+
             if (lbTotal.getText() != ""){
                 mensagem(Alert.AlertType.INFORMATION,"Pedido Finalizado Com Sucesso\nValor "+lbTotal.getText()+"\n"+lbCliente.getText());
             }else{

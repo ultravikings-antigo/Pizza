@@ -11,6 +11,7 @@ public interface ClienteDAO {
 
 
     Cliente buscaId(int id) throws SQLException;
+    List<Cliente> buscaNome(String nome) throws SQLException;
     List<Cliente> lista() throws SQLException;
 
 }

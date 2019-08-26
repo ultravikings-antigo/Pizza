@@ -15,6 +15,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         PreparedStatement stm = con
                 .prepareStatement("INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)");
 
+
         stm.setString(1,c.getNome());
         stm.setString(2,c.getTelefone());
         stm.setString(3,c.getAno_nascimento());
@@ -93,6 +94,29 @@ public class ClienteDAOImpl implements ClienteDAO {
         con.close();
 
         return c;
+    }
+
+    @Override
+    public List<Cliente> buscaNome(String nome) throws SQLException {
+
+        ArrayList<Cliente> clientes = new ArrayList<>();
+
+        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente where nome like ?");
+        stm.setString(1,nome);
+        ResultSet rs = stm.executeQuery();
+        while (rs.next()){
+            String nomeC = rs.getString("nome");
+            String telefoneC = rs.getString("telefone");
+            String anoC = rs.getString("ano");
+            Cliente c = new Cliente(nomeC,telefoneC,anoC);
+            clientes.add(c);
+        }
+        rs.close();
+        stm.close();
+        con.close();
+
+        return clientes;
     }
 
     @Override

@@ -11,6 +11,7 @@ public interface PizzaDAO {
 
 
     Pizza buscaId(int id) throws SQLException;
+    List<Pizza> buscaSabor(String sabor) throws SQLException;
     List<Pizza> lista() throws SQLException;
 
 }

@@ -32,7 +32,7 @@
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Label fx:id="lbTotal" layoutX="957.0" layoutY="257.0" prefHeight="30.0" prefWidth="300.0" text="Total:" textFill="#424242">
+      <Label fx:id="lbTotal" layoutX="957.0" layoutY="257.0" prefHeight="30.0" prefWidth="300.0" text="Total:">
          <font>
             <Font size="25.0" />
          </font>
@@ -42,7 +42,7 @@
       </Label>
       <TextField fx:id="tfPesquisaPizza" layoutX="35.0" layoutY="257.0" onKeyPressed="#buscaPizzas" prefHeight="30.0" prefWidth="270.0" promptText="pesquisa..." />
       <TextField fx:id="tfPesquisaCliente" layoutX="335.0" layoutY="257.0" onKeyPressed="#buscaClientes" prefHeight="30.0" prefWidth="270.0" promptText="pesquisa..." />
-      <Label fx:id="lbCliente" layoutX="957.0" layoutY="202.0" prefHeight="30.0" prefWidth="300.0" text="Cliente:" textFill="#424242">
+      <Label fx:id="lbCliente" layoutX="957.0" layoutY="202.0" prefHeight="30.0" prefWidth="300.0" text="Cliente:">
          <font>
             <Font size="25.0" />
          </font>
@@ -50,7 +50,7 @@
             <Bloom />
          </effect>
       </Label>
-      <Text layoutX="714.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Um Novo TOM De Pizza" />
+      <Text fill="#424242" layoutX="714.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Um Novo TOM De Pizza" />
       <Text fill="#424242" layoutX="425.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pizzaria DON Calonaci">
          <font>
             <Font size="40.0" />
@@ -62,6 +62,11 @@
          </font>
       </Text>
       <Text layoutX="365.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista De Clientes">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="728.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pedido">
          <font>
             <Font size="25.0" />
          </font>

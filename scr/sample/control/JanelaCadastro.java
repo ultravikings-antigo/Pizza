@@ -18,7 +18,7 @@ public class JanelaCadastro extends Avisos{
 
 
     @FXML
-    void telaPrincipal(){
+    void janelaPrincipal(){
         Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
     }
 
