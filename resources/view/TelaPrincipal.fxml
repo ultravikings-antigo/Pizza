@@ -26,5 +26,20 @@
             <Font size="40.0" />
          </font>
       </Text>
+      <Button layoutX="496.0" layoutY="622.0" mnemonicParsing="false" onAction="#telaListarPedidos" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Lista Pedidos" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="143.0" layoutY="622.0" mnemonicParsing="false" onAction="#telaListarCliente" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Lista Cliente" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <Button layoutX="846.0" layoutY="622.0" mnemonicParsing="false" onAction="#telaListarPizza" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Lista Pizza" textFill="#424242">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -19,6 +19,7 @@ public class FabricaConexao {
         for (int i=0; i<MAX_CONNECTIONS; i++){
             if (connections[i] == null || connections[i].isClosed()){
                 connections[i] = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+
                 return connections[i];
             }
         }

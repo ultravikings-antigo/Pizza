@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.control.JanelaVisualizaPedidos"
-            prefHeight="400.0" prefWidth="600.0">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaVisualizaPedidos">
 
-</AnchorPane>
+    <center>
+
+        <VBox>
+
+            <TableView fx:id="tbPedidos" onMouseClicked="#carregarPizzas" prefHeight="720.0" prefWidth="1280.0">
+
+                <columns>
+
+                    <TableColumn fx:id="tcPedidoID" text="Código" />
+
+                    <TableColumn fx:id="tcPedidoData" text="Data" />
+
+                    <TableColumn fx:id="tcPedidoValor" prefWidth="92.0" text="Valor (R$)" />
+
+                    <TableColumn fx:id="tcPedidoNome" text="Nome do Cliente"/>
+
+                </columns>
+
+            </TableView>
+
+
+            <TableView fx:id="tbPedidoPizzas" >
+
+                <columns>
+                    <TableColumn fx:id="tcPizzaSabor" text="Sabor"/>
+                    <TableColumn fx:id="tcPizzaValor" text="Valor"/>
+                </columns>
+
+            </TableView>
+
+            <Button onAction="#telaPrincipal" text="Voltar" />
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

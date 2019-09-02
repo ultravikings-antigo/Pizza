@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.control.JanelaVisualizaCliente"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <center>
+
+        <VBox>
+
+            <TableView fx:id="tbCliente" prefHeight="720.0" prefWidth="1280.0">
+
+                <columns>
+
+                    <TableColumn fx:id="tcClienteID" text="Código" />
+
+                    <TableColumn fx:id="tcClienteNome" text="Nome" />
+
+                    <TableColumn fx:id="tcClienteTelefone" prefWidth="92.0" text="Telefone" />
+
+                    <TableColumn fx:id="tcClienteAno" text="Ano" />
+
+                </columns>
+
+            </TableView>
+
+            <Button onAction="#telaPrincipal" text="Voltar" />
+
+        </VBox>
+
+    </center>
+</BorderPane>
