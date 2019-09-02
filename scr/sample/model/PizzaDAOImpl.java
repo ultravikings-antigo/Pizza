@@ -6,12 +6,12 @@ import java.util.List;
 
 public class PizzaDAOImpl implements PizzaDAO{
 
-    private static String INSERE = "INSERT INTO pizza(sabor,valor) VALUES (?,?)";
-    private static String UPDATE = "UPDATE pizza SET sabor=? ,valor=? WHERE id=?";
-    private static String DELETE = "DELETE FROM pizza WHERE id=?";
-    private static String BUSCA = "SELECT * FROM pizza WHERE id=?";
-    private static String BUSCASABOR = "SELECT * FROM pizza where sabor like ?";
-    private static String LISTA = "SELECT * FROM pizza";
+    private static String INSERE = "INSERT INTO pizzas(sabor,valor) VALUES (?,?)";
+    private static String UPDATE = "UPDATE pizzas SET sabor=? ,valor=? WHERE id=?";
+    private static String DELETE = "DELETE FROM pizzas WHERE id=?";
+    private static String BUSCA = "SELECT * FROM pizzas WHERE id=?";
+    private static String BUSCASABOR = "SELECT * FROM pizzas where sabor like ?";
+    private static String LISTA = "SELECT * FROM pizzas";
 
 
     @Override

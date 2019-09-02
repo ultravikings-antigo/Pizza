@@ -28,6 +28,10 @@ public class Pizzaria {
         return instance;
     }
 
+    public void excluiralif() throws SQLException {
+
+        clienteDAO.remove();
+    }
 
     public void cadastrarPizza(String sabor, Double valor) throws SQLException {
         pizzaDAO.insere(sabor,valor);
@@ -74,9 +78,10 @@ public class Pizzaria {
         pedidoDAO.insere(pedido);
         pedido.getValorTotal();
         pedido = null;
+    }
 
-
-
+    public void finalizaPedido(){
+        pedido = null;
     }
 
     public Pedido verPedido(){

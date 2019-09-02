@@ -43,10 +43,11 @@ public class JanelaPizza extends Avisos{
     void telaPrincipal() throws Exception {
         if (Pizzaria.getInstance().verPedido() == null){
             Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
+            Pizzaria.getInstance().excluiralif();
         }else{
             Boolean decisão = mensagemConfirmar("Realmente Quer Sair ?\nAinda Há Um Pedido Aberto");
             if (decisão != Boolean.FALSE){
-                Pizzaria.getInstance().fecharPedido();
+                Pizzaria.getInstance().finalizaPedido();
                 Navegador.loadJanela(Navegador.JANELA_PRINCIPAL);
             }
         }

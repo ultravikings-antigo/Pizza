@@ -7,11 +7,11 @@ import java.util.List;
 
 public class PedidoDAOImpl implements PedidoDAO {
 
-    private static String INSERT = "INSERT INTO pedido(idCliente,valorTotal,data) VALUES(?,?,?)";
-    private static String ULTIMO_ID = "SELECT seq from sqlite_sequence where name='pedido'";
-    private static String INSERE_PEDIDO_PIZZA = "INSERT INTO pedido_pizza(idPedido,idPizza,valor) VALUES(?,?,?)";
-    private static String LISTA = "SELECT * FROM pedido";
-    private static String LISTA_PEDIDOPIZZA = "SELECT * FROM pedido_pizza WHERE idPedido=?";
+    private static String INSERT = "INSERT INTO pedidos(idCliente,valorTotal,data) VALUES(?,?,?)";
+    private static String ULTIMO_ID = "SELECT seq from sqlite_sequence where name='pedidos'";
+    private static String INSERE_PEDIDO_PIZZA = "INSERT INTO pedidopizza(idPedido,idPizza,valor) VALUES(?,?,?)";
+    private static String LISTA = "SELECT * FROM pedidos";
+    private static String LISTA_PEDIDOPIZZA = "SELECT * FROM pedidopizza WHERE idPedido=?";
 
 
     @Override

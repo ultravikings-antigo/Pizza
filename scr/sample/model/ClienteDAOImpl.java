@@ -6,12 +6,12 @@ import java.util.List;
 
 public class ClienteDAOImpl implements ClienteDAO {
 
-    private static String INSERT = "INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)";
-    private static String UPDATE = "UPDATE cliente SET nome=? ,telefone=?, ano=? WHERE id=?";
-    private static String DELETE = "DELETE FROM cliente WHERE id=?";
-    private static String BUSCA  = "SELECT * FROM cliente where id=?";
-    private static String BUSCANOME = "SELECT * FROM cliente where nome like ?";
-    private static String LISTA = "SELECT * FROM cliente";
+    private static String INSERT = "INSERT INTO clientes(nome,telefone,anonascimento) VALUES (?,?,?)";
+    private static String UPDATE = "UPDATE clientes SET nome=? ,telefone=?, anonascimento=? WHERE id=?";
+    private static String DELETE = "DELETE FROM clientes WHERE id=1";
+    private static String BUSCA  = "SELECT * FROM clientes WHERE id=?";
+    private static String BUSCANOME = "SELECT * FROM clientes WHERE nome like ?";
+    private static String LISTA = "SELECT * FROM clientes";
 
     @Override
     public Cliente insere(String nome, String telefone, String ano) throws SQLException {
@@ -57,14 +57,13 @@ public class ClienteDAOImpl implements ClienteDAO {
     }
 
     @Override
-    public boolean remove(Cliente c) throws SQLException {
+    public boolean remove() throws SQLException {
         Connection con = FabricaConexao.getConnection();
 
 
         PreparedStatement stm = con
                 .prepareStatement(DELETE);
 
-        stm.setInt(1,c.getId());
 
         stm.executeUpdate();
 
@@ -90,7 +89,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         while(res.next()){
             String nome = res.getString("nome");
             String telefone = res.getString("telefone");
-            String ano = res.getString("ano");
+            String ano = res.getString("anonascimento");
 
 
             c = new Cliente(id,nome,telefone,ano);
@@ -115,7 +114,7 @@ public class ClienteDAOImpl implements ClienteDAO {
         while (rs.next()){
             String nomeC = rs.getString("nome");
             String telefoneC = rs.getString("telefone");
-            String anoC = rs.getString("ano");
+            String anoC = rs.getString("anonascimento");
             Cliente c = new Cliente(nomeC,telefoneC,anoC);
             clientes.add(c);
         }
@@ -139,7 +138,7 @@ public class ClienteDAOImpl implements ClienteDAO {
             int id = rs.getInt("id");
             String nome = rs.getString("nome");
             String telefone = rs.getString("telefone");
-            String ano = rs.getString("ano");
+            String ano = rs.getString("anonascimento");
 
             Cliente c = new Cliente(id,nome,telefone,ano);
 
