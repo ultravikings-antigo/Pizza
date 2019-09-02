@@ -6,14 +6,21 @@ import java.util.List;
 
 public class ClienteDAOImpl implements ClienteDAO {
 
+    private static String INSERT = "INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)";
+    private static String UPDATE = "UPDATE cliente SET nome=? ,telefone=?, ano=? WHERE id=?";
+    private static String DELETE = "DELETE FROM cliente WHERE id=?";
+    private static String BUSCA  = "SELECT * FROM cliente where id=?";
+    private static String BUSCANOME = "SELECT * FROM cliente where nome like ?";
+    private static String LISTA = "SELECT * FROM cliente";
+
     @Override
     public Cliente insere(String nome, String telefone, String ano) throws SQLException {
         Cliente c = new Cliente(nome,telefone,ano);
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        Connection con = FabricaConexao.getConnection();
 
 
         PreparedStatement stm = con
-                .prepareStatement("INSERT INTO cliente(nome,telefone,ano) VALUES (?,?,?)");
+                .prepareStatement(INSERT);
 
 
         stm.setString(1,c.getNome());
@@ -30,11 +37,11 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public Cliente atualiza(Cliente c) throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        Connection con = FabricaConexao.getConnection();
 
 
         PreparedStatement stm = con
-                .prepareStatement("UPDATE cliente SET nome=? ,telefone=?, ano=? WHERE id=?");
+                .prepareStatement(UPDATE);
 
         stm.setString(1,c.getNome());
         stm.setString(2,c.getTelefone());
@@ -51,11 +58,11 @@ public class ClienteDAOImpl implements ClienteDAO {
 
     @Override
     public boolean remove(Cliente c) throws SQLException {
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        Connection con = FabricaConexao.getConnection();
 
 
         PreparedStatement stm = con
-                .prepareStatement("DELETE FROM cliente WHERE id=?");
+                .prepareStatement(DELETE);
 
         stm.setInt(1,c.getId());
 
@@ -72,9 +79,9 @@ public class ClienteDAOImpl implements ClienteDAO {
 
         Cliente c=null;
 
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
+        Connection con = FabricaConexao.getConnection();
 
-        PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente where id=?");
+        PreparedStatement stm = con.prepareStatement(BUSCA);
 
         stm.setInt(1,id);
 
@@ -101,8 +108,8 @@ public class ClienteDAOImpl implements ClienteDAO {
 
         ArrayList<Cliente> clientes = new ArrayList<>();
 
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
-        PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente where nome like ?");
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stm = con.prepareStatement(BUSCANOME);
         stm.setString(1,nome);
         ResultSet rs = stm.executeQuery();
         while (rs.next()){
@@ -123,8 +130,8 @@ public class ClienteDAOImpl implements ClienteDAO {
     public List<Cliente> lista() throws SQLException {
         ArrayList<Cliente> clientes = new ArrayList<>();
 
-        Connection con = DriverManager.getConnection("jdbc:sqlite:pizza.sqlite");
-        PreparedStatement stm = con.prepareStatement("SELECT * FROM cliente");
+        Connection con = FabricaConexao.getConnection();
+        PreparedStatement stm = con.prepareStatement(LISTA);
 
         ResultSet rs = stm.executeQuery();
 

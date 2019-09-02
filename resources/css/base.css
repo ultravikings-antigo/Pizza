@@ -2,6 +2,10 @@
     -fx-background-image: url("/image/Fundo1.jpg");
 }
 
-.negrito{
+.redondo{
+    -fx-background-radius: 100;
+}
 
+.umpoucomenosredondo{
+    -fx-background-radius: 35;
 }

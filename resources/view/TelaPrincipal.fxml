@@ -7,15 +7,15 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" styleClass="planoFundo" stylesheets="/css/base.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.control.JanelaPrincipal">
    <children>
-      <Button layoutX="490.0" layoutY="259.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="50.0" prefWidth="300.0" text="Cadastrar Pizza" textFill="#424242">
+      <Button layoutX="490.0" layoutY="259.0" mnemonicParsing="false" onAction="#telaCadastrar" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Cadastrar Pizza" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="490.0" layoutY="512.0" mnemonicParsing="false" onAction="#telaListar" prefHeight="50.0" prefWidth="300.0" text="Ver Cardapio" textFill="#424242">
+      <Button layoutX="490.0" layoutY="512.0" mnemonicParsing="false" onAction="#telaListar" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Ver Cardapio" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button layoutX="490.0" layoutY="386.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="50.0" prefWidth="300.0" text="Cadastrar Cliente" textFill="#424242">
+      <Button layoutX="490.0" layoutY="386.0" mnemonicParsing="false" onAction="#telaCliente" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Cadastrar Cliente" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

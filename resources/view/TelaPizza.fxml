@@ -14,21 +14,21 @@
       <ListView fx:id="ltvCardapio" layoutX="35.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
       <ListView fx:id="ltvPizzas" layoutX="635.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
       <ListView fx:id="ltvCliente" layoutX="335.0" layoutY="306.0" prefHeight="380.0" prefWidth="270.0" />
-      <Button layoutX="957.0" layoutY="636.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="50.0" prefWidth="300.0" text="Voltar" textFill="#424242" />
-      <Button fx:id="bAdicionarPizza" layoutX="957.0" layoutY="446.0" mnemonicParsing="false" onAction="#acaoAdicionarPizza" prefHeight="50.0" prefWidth="300.0" text="Adiconar Pizza" textFill="#424242">
+      <Button layoutX="957.0" layoutY="636.0" mnemonicParsing="false" onAction="#telaPrincipal" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Voltar" textFill="#424242" />
+      <Button fx:id="bAdicionarPizza" layoutX="957.0" layoutY="446.0" mnemonicParsing="false" onAction="#acaoAdicionarPizza" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Adiconar Pizza" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="bFinalizarPedido" layoutX="957.0" layoutY="366.0" mnemonicParsing="false" onAction="#acaoPedir" prefHeight="50.0" prefWidth="300.0" text="Finalizar Pedido" textFill="#424242">
+      <Button fx:id="bFinalizarPedido" layoutX="957.0" layoutY="366.0" mnemonicParsing="false" onAction="#acaoPedir" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Finalizar Pedido" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="bAdicionarCliente" layoutX="957.0" layoutY="506.0" mnemonicParsing="false" onAction="#acaoAdicionarCliente" prefHeight="50.0" prefWidth="300.0" text="Adicionar Cliente" textFill="#424242">
+      <Button fx:id="bAdicionarCliente" layoutX="957.0" layoutY="506.0" mnemonicParsing="false" onAction="#acaoAdicionarCliente" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Adicionar Cliente" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <Button fx:id="bAbrirPedido" layoutX="957.0" layoutY="306.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="50.0" prefWidth="300.0" text="Abir Pedido" textFill="#424242">
+      <Button fx:id="bAbrirPedido" layoutX="957.0" layoutY="306.0" mnemonicParsing="false" onAction="#abrirPedido" prefHeight="50.0" prefWidth="300.0" styleClass="redondo" stylesheets="@../css/base.css" text="Abir Pedido" textFill="#424242">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
